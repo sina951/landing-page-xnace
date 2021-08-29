@@ -1,0 +1,463 @@
+*,
+*:before,
+*:after {
+  box-sizing: border-box;
+}
+
+a {
+  text-decoration: none;
+}
+
+ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+/* width: 100%; makes the img fluid - that is it will fit its container */
+img {
+  width: 100%;
+}
+
+body {
+  margin: 0;
+  font-family: "Bebas Neue";
+}
+
+.menu-btn {
+  width: 2.5em;
+  cursor: pointer;
+}
+/* position: absolute; so that it is in the background and later we put hero picture and text on top of it */
+.top-bg-container {
+  height: 100vh;
+  position: absolute;
+  width: 90%;
+  top: 0;
+  right: 0;
+  display: grid;
+  grid-template-columns: 80% auto;
+  z-index: -1;
+}
+
+.light-streaks {
+  /* background: #fab86c url("./assets/gym2.jpg"); */
+  background: linear-gradient(
+    90deg,
+    rgba(255, 255, 255, 1) 0%,
+    rgba(255, 255, 255, 1) 35%,
+    rgba(250, 184, 108, 1) 100%
+  );
+  background-blend-mode: screen;
+  background-size: cover;
+  height: 100vh;
+}
+
+.blue-col {
+  /* background-color: #272727; */
+  background-color: #374258;
+}
+
+.container {
+  margin: 0 1em;
+}
+
+nav {
+  display: flex;
+  justify-content: space-between;
+}
+/* By adding inline block to the a elemnt we can for example give it a background color based on on with of the element itself I know it sounds wierd */
+.logo {
+  display: inline-block;
+  background-color: #374258;
+  padding: 0.2em 0.4em;
+  color: white;
+  font-size: 1.8rem;
+}
+
+.logo span {
+  color: white;
+}
+/* SIDERBAR */
+/* padding: 2em 0; means top to bottom, left to right. */
+/* top: 0; in combination with right: 0;puts the ul top right. */
+nav ul {
+  position: fixed;
+  top: 0;
+  right: 0;
+  width: 66%;
+  background-color: #363b4e;
+  height: 100vh;
+  z-index: 2;
+  padding: 2em 0;
+  transform: translateX(100%);
+  transition: transform 0.3s;
+}
+/* again you have to add display: block; in order to ad padding to an a element */
+nav ul li a {
+  color: white;
+  display: block;
+  padding: 0.4em 1.5em;
+  font-size: 1.5rem;
+  text-align: right;
+}
+
+.exit-btn {
+  text-align: right;
+}
+
+.exit-btn img {
+  width: 2em;
+  margin: 2em;
+  cursor: pointer;
+}
+/* END SIDEBAR */
+
+.content {
+  text-align: center;
+  margin: 6em 3em 0;
+  height: 85vh;
+}
+
+h1 {
+  font-size: 3rem;
+  font-weight: normal;
+  line-height: 92%;
+}
+
+.type p {
+  font-family: "Montserrat";
+  font-size: 1.125rem;
+  line-height: 141.6%;
+}
+
+.tshirt-container {
+  position: relative;
+  margin: 5em auto;
+  width: 65%;
+}
+
+.blur,
+.tshirt {
+  position: absolute;
+  left: 0;
+  z-index: 1;
+}
+/* alternate-reverse infinite means it goes back and fort between original value and the new values specified in keyframes translateY(-30px), infinetly  */
+
+.tshirt {
+  animation: hover 2s alternate-reverse infinite;
+}
+
+@keyframes hover {
+  from {
+    transform: scale(0.95);
+    /* transform: translateY(-30px) */
+  }
+}
+
+@keyframes slide {
+  from {
+    transform: translateY(-100px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0px);
+    opacity: 1;
+  }
+}
+
+/* QUOTE SECTION */
+/* margin-left: auto; is what we use to push the whole quote section to the left! float:  */
+.quote {
+  width: 90%;
+  background-color: #303853;
+  color: white;
+  position: relative;
+  padding: 4em 2em;
+  margin-left: auto;
+  height: 75vh;
+}
+
+.quote:before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  background: url("./assets/gym1.jpg");
+  width: 100%;
+  height: 100%;
+  opacity: 17%;
+}
+
+/* Quote section */
+.quote {
+  width: 80%;
+  display: grid;
+  place-content: center;
+}
+
+blockquote,
+cite {
+  width: 80%;
+  justify-self: left;
+}
+
+blockquote {
+  font-size: 1.5rem;
+}
+
+cite {
+  position: relative;
+  padding-left: 1.5em;
+}
+
+cite:before {
+  content: "";
+  position: absolute;
+  width: 1em;
+  border-bottom: 1px solid white;
+  left: 0;
+  top: 50%;
+}
+/* QUOTE SECTION END */
+/* PHOTO GALLERY SECTION */
+.gallery {
+  display: block;
+  width: 90%;
+  margin-left: auto;
+  margin-bottom: 2em;
+}
+
+h2 {
+  font-size: 2.5rem;
+  margin-bottom: 0;
+  font-weight: normal;
+}
+
+.footage-content p {
+  font-family: "Montserrat";
+}
+
+/* grid-template-areas allows us to name items from our column and rows. in gallery-container img:nth-of-type(1) we attach the images to a named area!  */
+.gallery-container {
+  display: grid;
+  grid-template-areas:
+    ". a b"
+    "c d ."
+    ". e f";
+  margin-top: 2em;
+}
+
+/* aspect-ratio: 1 / 1; makes it a square. object-fit: cover; so the img fills the whole gridbox */
+.gallery-container img {
+  object-fit: cover;
+  width: 100%;
+  height: 100%;
+  aspect-ratio: 1 / 1;
+  cursor: pointer;
+  /* filter: blur(8px); */
+  /* filter: grayscale(100%); */
+  /* https://www.w3schools.com/howto/howto_css_image_overlay_slide.asp */
+}
+
+.gallery-container img:nth-of-type(1) {
+  grid-area: a;
+}
+.gallery-container img:nth-of-type(2) {
+  grid-area: b;
+}
+.gallery-container img:nth-of-type(3) {
+  grid-area: c;
+}
+.gallery-container img:nth-of-type(4) {
+  grid-area: d;
+}
+.gallery-container img:nth-of-type(5) {
+  grid-area: e;
+}
+.gallery-container img:nth-of-type(6) {
+  display: none;
+}
+/* PHOTO GALLERY SECTION END */
+/* CONTACT SECTION */
+.contact {
+  background: #fab86c;
+}
+/* display: inline-block; so that the width of background is set to the parent that is h3 */
+h3 {
+  padding: 1em 1em 1em 10%;
+  font-size: 2rem;
+  background-color: #374258;
+  color: white;
+  display: inline-block;
+  margin: 0;
+  font-weight: normal;
+}
+
+.cols-2 {
+  width: 90%;
+  margin: 2em 2em 2em 10%;
+  padding-right: 2em;
+  padding-bottom: 2em;
+}
+
+label {
+  display: block;
+  font-size: 1.2rem;
+  margin-bottom: 0.5em;
+}
+
+input {
+  width: 100%;
+  border: none;
+  padding: 1em;
+  margin-bottom: 2em;
+}
+
+button {
+  background: black;
+  border: none;
+  padding: 0.8em;
+  width: 100%;
+  color: white;
+  text-transform: uppercase;
+  font-family: "Bebas Neue";
+  font-size: 1.3rem;
+  cursor: pointer;
+}
+
+.other-info {
+  margin-top: 3em;
+  width: 50%;
+}
+
+.other-info ul li {
+  padding: 0.5em;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+  display: block;
+  border-radius: 0.2em;
+  font-family: "Montserrat";
+  font-size: 0.9rem;
+}
+
+.other-info a {
+  color: black;
+}
+/* CONTACT SECTION END*/
+/* DESKTOP MEDIA QUE */
+@media only screen and (min-width: 900px) {
+  html {
+    /* font-size: 20px; is like magic, it will change the default padding aswell since we put all padding as ems */
+    font-size: 20px;
+  }
+
+  .top-bg-container {
+    width: 80%;
+    grid-template-columns: 60% auto;
+  }
+
+  .container {
+    width: 80%;
+    margin: 0 auto;
+  }
+  /* here we center our hero content, which is inside the .container */
+  .content {
+    display: flex;
+    text-align: left;
+    padding: 0;
+    margin-left: 0;
+    margin-right: 0;
+    animation: slide 1s forwards;
+  }
+
+  h1 {
+    font-size: 5rem;
+    width: 80%;
+  }
+
+  .type p {
+    width: 80%;
+  }
+
+  /* Quote sec - big screen */
+  blockquote,
+  cite {
+    width: 50%;
+  }
+
+  blockquote {
+    font-size: 2rem;
+  }
+
+  /* Nav */
+  .menu-btn,
+  .exit-btn {
+    display: none;
+  }
+
+  nav ul {
+    transform: translateX(0);
+    width: unset;
+    background: none;
+    display: flex;
+    padding-top: 1em;
+    padding-bottom: 0;
+    position: unset;
+    height: auto;
+  }
+  nav ul li {
+    position: relative;
+  }
+  nav ul li a {
+    font-size: 1rem;
+    padding: 0 1em;
+  }
+  nav ul li a::before {
+    content: "";
+    display: block;
+    position: absolute;
+    opacity: 0;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    height: 3px;
+    transform: scale(0.5);
+    transition: all 0.4s;
+    background-color: white;
+  }
+  nav ul li a:hover:before {
+    opacity: 1;
+    transform: translateY(1px);
+  }
+
+  /* Grid gallery section */
+  .gallery {
+    display: flex;
+    gap: 4em;
+  }
+
+  .gallery-container {
+    /* margin-top: -5em; we overlap grid gallery with quote section! looks cool */
+    margin-top: -5em;
+    z-index: 1;
+  }
+
+  h2 {
+    font-size: 4rem;
+    font-weight: normal;
+    line-height: 91.6%;
+  }
+
+  /* Contact section */
+  .cols-2 {
+    display: flex;
+    gap: 3em;
+  }
+
+  .form-container,
+  .other-info {
+    /* flex-basis: 0; and flex-grow: 1; toghether will make 50/50 columns based on flexbox container. */
+    flex-basis: 0;
+    flex-grow: 1;
+  }
+}
