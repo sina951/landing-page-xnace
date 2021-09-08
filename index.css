@@ -40,13 +40,13 @@ body {
 }
 
 .light-streaks {
-  /* background: #fab86c url("./assets/gym2.jpg"); */
-  background: linear-gradient(
+  background: #fdb15b url("./assets/gym2.jpg");
+  /* background: linear-gradient(
     90deg,
-    rgba(255, 255, 255, 1) 0%,
-    rgba(255, 255, 255, 1) 35%,
+    rgb(250, 184, 108, 1) 0%,
+    rgba(250, 184, 108, 1) 35%,
     rgba(250, 184, 108, 1) 100%
-  );
+  ); */
   background-blend-mode: screen;
   background-size: cover;
   height: 100vh;
@@ -119,21 +119,22 @@ nav ul li a {
 }
 
 h1 {
-  font-size: 3rem;
+  font-size: 5rem;
   font-weight: normal;
   line-height: 92%;
 }
 
 .type p {
   font-family: "Montserrat";
-  font-size: 1.125rem;
+  font-size: 2rem;
+  font-weight: normal;
   line-height: 141.6%;
 }
 
 .tshirt-container {
   position: relative;
   margin: 5em auto;
-  width: 65%;
+  width: 90%;
 }
 
 .blur,
@@ -176,6 +177,7 @@ h1 {
   padding: 4em 2em;
   margin-left: auto;
   height: 75vh;
+  /* font-size: 1.5rem; */
 }
 
 .quote:before {
@@ -187,6 +189,8 @@ h1 {
   width: 100%;
   height: 100%;
   opacity: 17%;
+  background-size: cover;
+  
 }
 
 /* Quote section */
@@ -200,10 +204,11 @@ blockquote,
 cite {
   width: 80%;
   justify-self: left;
+  font-size: 2rem;
 }
 
 blockquote {
-  font-size: 1.5rem;
+  font-size: 2rem;
 }
 
 cite {
@@ -344,8 +349,9 @@ button {
   color: black;
 }
 /* CONTACT SECTION END*/
+
 /* DESKTOP MEDIA QUE */
-@media only screen and (min-width: 900px) {
+@media only screen and (min-width: 1000px) {
   html {
     /* font-size: 20px; is like magic, it will change the default padding aswell since we put all padding as ems */
     font-size: 20px;
@@ -377,6 +383,7 @@ button {
 
   .type p {
     width: 80%;
+    font-weight: normal;
   }
 
   /* Quote sec - big screen */
